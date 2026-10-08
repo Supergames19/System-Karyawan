@@ -165,6 +165,15 @@
             flex-direction: column;
             transition: 0.3s;
             z-index: 100;
+            overflow-y: auto;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 5px;
+        }
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 10px;
         }
 
         .nav-link {
@@ -178,6 +187,7 @@
             align-items: center;
             gap: 12px;
             transition: 0.2s;
+            font-size: 14px;
         }
 
         .nav-link:hover,
@@ -185,6 +195,17 @@
             background: var(--primary);
             color: white;
             box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+        }
+
+        .menu-label {
+            font-size: 11px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            padding-left: 10px;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
 
         .main-content {
@@ -287,26 +308,11 @@
             transform: translateY(-1px);
         }
 
-        .btn-blue {
-            background: var(--primary);
-        }
-
-        .btn-green {
-            background: var(--success);
-        }
-
-        .btn-red {
-            background: var(--danger);
-        }
-
-        .btn-gray {
-            background: #6b7280;
-        }
-
-        .btn-warning {
-            background: var(--warning);
-            color: white;
-        }
+        .btn-blue { background: var(--primary); }
+        .btn-green { background: var(--success); }
+        .btn-red { background: var(--danger); }
+        .btn-gray { background: #6b7280; }
+        .btn-warning { background: var(--warning); color: white; }
 
         .badge {
             padding: 6px 12px;
@@ -315,48 +321,27 @@
             font-weight: 600;
         }
 
-        .bg-green {
-            background: #d1fae5;
-            color: #065f46;
-        }
-
-        .bg-red {
-            background: #fee2e2;
-            color: #991b1b;
-        }
-
-        .bg-yellow {
-            background: #fef3c7;
-            color: #92400e;
-        }
+        .bg-green { background: #d1fae5; color: #065f46; }
+        .bg-red { background: #fee2e2; color: #991b1b; }
+        .bg-yellow { background: #fef3c7; color: #92400e; }
 
         .gajian-area {
             display: flex;
-            gap: 25px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
         .gajian-box {
             flex: 1;
-            min-width: 300px;
+            min-width: 220px;
             padding: 25px;
             border-radius: 20px;
             border: 1px solid var(--border);
         }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .form-group input,
-        .form-group select {
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+        .form-group input, .form-group select {
             width: 100%;
             padding: 12px 15px;
             border: 1px solid var(--border);
@@ -389,15 +374,8 @@
         }
 
         @keyframes slideUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         #toast {
@@ -415,98 +393,25 @@
             z-index: 9999;
             font-weight: 600;
         }
-
-        #toast.show {
-            transform: translateX(0);
-        }
+        #toast.show { transform: translateX(0); }
 
         @media (max-width: 768px) {
-            .sidebar {
-                position: fixed;
-                left: -260px;
-                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
-            }
-
-            .sidebar.show {
-                left: 0;
-            }
-
-            .menu-btn {
-                display: block;
-            }
-
-            .search-bar {
-                width: 100%;
-            }
+            .sidebar { position: fixed; left: -260px; box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5); }
+            .sidebar.show { left: 0; }
+            .menu-btn { display: block; }
+            .search-bar { width: 100%; }
         }
 
-        /* 🖨️ CSS PRINT KASIR THERMAL PRO (ANTI BLANK) */
+        /* 🖨️ CSS PRINT KASIR THERMAL PRO */
         @media print {
-            @page {
-                margin: 0;
-                size: 80mm auto;
-            }
-
-            body * {
-                visibility: hidden;
-            }
-
-            #login-screen,
-            .sidebar,
-            .top-header,
-            .card,
-            .gajian-box,
-            #area-ringkasan,
-            #area-pengaturan,
-            #toast,
-            #modal-form,
-            .no-print {
-                display: none !important;
-            }
-
-            body,
-            html {
-                background: white;
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                height: auto;
-                color: #e5e7eb;
-            }
-
-            #print-area,
-            #struk-gaji,
-            #struk-gaji * {
-                visibility: visible;
-            }
-
-            #struk-gaji {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 75mm !important;
-                margin: 0 auto;
-                font-family: 'Courier New', Courier, monospace;
-                color: black;
-                background: white;
-                padding: 10px;
-                border: none;
-                font-size: 13px;
-                display: block !important;
-            }
-
-            .s-row {
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 5px;
-                font-weight: bold;
-            }
-
-            hr {
-                border-top: 1px dashed black;
-                margin: 10px 0;
-                border-bottom: none;
-            }
+            @page { margin: 0; size: 80mm auto; }
+            body * { visibility: hidden; }
+            #login-screen, .sidebar, .top-header, .card, .gajian-box, #area-ringkasan, #area-pengaturan, #toast, #modal-form, .no-print { display: none !important; }
+            body, html { background: white; margin: 0; padding: 0; width: 100%; height: auto; color: #e5e7eb; }
+            #print-area, #struk-gaji, #struk-gaji * { visibility: visible; }
+            #struk-gaji { position: absolute; left: 0; top: 0; width: 75mm !important; margin: 0 auto; font-family: 'Courier New', Courier, monospace; color: black; background: white; padding: 10px; border: none; font-size: 13px; display: block !important; }
+            .s-row { display: flex; justify-content: space-between; margin-bottom: 5px; font-weight: bold; }
+            hr { border-top: 1px dashed black; margin: 10px 0; border-bottom: none; }
         }
     </style>
 </head>
@@ -530,31 +435,32 @@
     <!-- 📱 DASHBOARD -->
     <div id="dashboard">
         <div class="sidebar no-print" id="sidebar">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 25px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px;">
                 <h2 style="color: var(--primary); font-size: 20px;"><i class="fa-solid fa-industry"></i> ERP PRO</h2>
                 <i class="fa-solid fa-xmark menu-btn" onclick="toggleMenu()" style="font-size:20px;"></i>
             </div>
 
-            <a class="nav-link active" onclick="openMenu('Ringkasan')"><i class="fa-solid fa-chart-pie"></i> Dashboard
-                Analitik</a>
-            <div style="margin: 10px 0; border-bottom: 1px solid var(--border);"></div>
-
-            <a class="nav-link" onclick="openMenu('Karyawan')"><i class="fa-solid fa-users"></i> Data Karyawan</a>
+            <a class="nav-link active" onclick="openMenu('Ringkasan')"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
+            
+            <div class="menu-label">PENGGAJIAN & HRD</div>
+            <a class="nav-link" onclick="openMenu('Karyawan')"><i class="fa-solid fa-users"></i> Karyawan</a>
             <a class="nav-link" onclick="openMenu('Absensi')"><i class="fa-solid fa-calendar-check"></i> Absensi</a>
             <a class="nav-link" onclick="openMenu('Produksi')"><i class="fa-solid fa-hammer"></i> Produksi</a>
             <a class="nav-link" onclick="openMenu('Kasbon')"><i class="fa-solid fa-wallet"></i> Kasbon</a>
-            <a class="nav-link" onclick="openMenu('Gajian')"><i class="fa-solid fa-file-invoice-dollar"></i> Cetak
-                Gaji</a>
+            <a class="nav-link" onclick="openMenu('Gajian')"><i class="fa-solid fa-file-invoice-dollar"></i> Cetak Slip</a>
 
-            <!-- TOMBOL INSTALL APLIKASI -->
+            <div class="menu-label">INVENTORY GUDANG</div>
+            <a class="nav-link" onclick="openMenu('Stok_Bahan')"><i class="fa-solid fa-boxes-stacked"></i> Stok Bahan</a>
+            <a class="nav-link" onclick="openMenu('Log_Beli_Bahan')"><i class="fa-solid fa-cart-shopping"></i> Beli Bahan</a>
+            <a class="nav-link" onclick="openMenu('Pengambilan_Bahan')"><i class="fa-solid fa-hand-holding-box"></i> Ambil Bahan</a>
+
+            <div class="menu-label">SISTEM APLIKASI</div>
             <a class="nav-link" id="btn-install-app" style="display: none; background: #10b981; color: white;">
                 <i class="fa-brands fa-android"></i> Install App di HP
             </a>
+            <a class="nav-link" onclick="openMenu('Pengaturan')"><i class="fa-solid fa-gears"></i> Pengaturan Web</a>
 
-            <div style="margin: 10px 0; border-bottom: 1px solid var(--border);"></div>
-            <a class="nav-link" onclick="openMenu('Pengaturan')"><i class="fa-solid fa-gears"></i> Pengaturan</a>
-
-            <div style="margin-top:auto; text-align:center;">
+            <div style="margin-top:auto; text-align:center; padding-top:20px;">
                 <p id="sync-status" style="font-size:11px; color:var(--success); font-weight:bold; margin-bottom: 5px;"><i class="fa-solid fa-cloud-arrow-up"></i> Data Akurat</p>
                 <p style="font-size:10px; color:#9ca3af; font-weight:500;">App by edy sahputra</p>
             </div>
@@ -580,17 +486,20 @@
                 <!-- 📊 AREA RINGKASAN (DASHBOARD) -->
                 <div id="area-ringkasan" class="gajian-area no-print" style="margin-bottom: 20px;">
                     <div class="gajian-box" style="background:#dbeafe; border-color:#bfdbfe;">
-                        <h4 style="color:#1e40af;"><i class="fa-solid fa-users"></i> Total Karyawan Aktif</h4>
+                        <h4 style="color:#1e40af;"><i class="fa-solid fa-users"></i> Karyawan Aktif</h4>
                         <h2 id="dash-karyawan" style="font-size: 32px; color:#1e3a8a; margin-top:10px;">0</h2>
                     </div>
                     <div class="gajian-box" style="background:#fef3c7; border-color:#fde68a;">
-                        <h4 style="color:#92400e;"><i class="fa-solid fa-triangle-exclamation"></i> Total Kasbon Belum
-                            Lunas</h4>
+                        <h4 style="color:#92400e;"><i class="fa-solid fa-wallet"></i> Piutang Kasbon</h4>
                         <h2 id="dash-kasbon" style="font-size: 32px; color:#78350f; margin-top:10px;">Rp 0</h2>
                     </div>
                     <div class="gajian-box" style="background:#d1fae5; border-color:#a7f3d0;">
-                        <h4 style="color:#065f46;"><i class="fa-solid fa-hammer"></i> Nilai Produksi Belum Lunas</h4>
+                        <h4 style="color:#065f46;"><i class="fa-solid fa-hammer"></i> Upah Produksi Tertunda</h4>
                         <h2 id="dash-produksi" style="font-size: 32px; color:#064e3b; margin-top:10px;">Rp 0</h2>
+                    </div>
+                    <div class="gajian-box" style="background:#e0e7ff; border-color:#c7d2fe;">
+                        <h4 style="color:#3730a3;"><i class="fa-solid fa-boxes-stacked"></i> Macam Bahan di Gudang</h4>
+                        <h2 id="dash-stok" style="font-size: 32px; color:#312e81; margin-top:10px;">0</h2>
                     </div>
                 </div>
 
@@ -679,7 +588,6 @@
 
                             <hr>
                             <div class="s-row" style="font-size:16px;"><span>SISA BERSIH:</span><span id="s-bersih-rp"></span></div>
-                            <!-- TEKS SISA HUTANG AKAN MUNCUL DI SINI JIKA ADA -->
                             <div class="s-row" id="s-row-sisa-hutang" style="font-size:12px; color:red; margin-top:5px; display:none;">
                                 <span>Sisa Hutang:</span><span id="s-sisa-hutang-rp"></span>
                             </div>
@@ -744,7 +652,6 @@
         let isOfflineMode = false;
         let autoSyncTimer;
 
-        // Cek Tema Mode Gelap di Awal
         if (localStorage.getItem("erp_dark_mode") === "true") document.body.classList.add("dark-mode");
 
         function toggleDarkMode() {
@@ -766,7 +673,6 @@
             return await res.json();
         }
 
-        // 🔐 LOGIN & INITIAL LOAD
         document.addEventListener("DOMContentLoaded", async function () {
             try {
                 const data = await fetchGAS({ action: "CEK_PASSWORD", password: "" });
@@ -866,7 +772,7 @@
             openMenu(currentMenu);
         }
 
-        // 📊 DASHBOARD ANALYTICS LOGIC
+        // 📊 DASHBOARD ANALYTICS LOGIC (WITH INVENTORY)
         function updateDashboardAnalytics() {
             if (!allData["Karyawan"]) return;
 
@@ -890,13 +796,27 @@
                 }
             }
             document.getElementById("dash-produksi").innerText = formatRp(totProd);
+
+            // 4. Total Jenis Bahan Gudang
+            let totBahan = 0;
+            if (allData["Stok_Bahan"] && allData["Stok_Bahan"].length > 1) {
+                totBahan = allData["Stok_Bahan"].length - 1;
+            }
+            document.getElementById("dash-stok").innerText = totBahan;
         }
 
         function openMenu(menu) {
             currentMenu = menu;
             document.querySelectorAll('.nav-link').forEach(e => e.classList.remove('active'));
             event?.currentTarget?.classList.add('active');
-            document.getElementById("top-title").innerText = menu === "Ringkasan" ? "Dashboard Analitik" : "Data " + menu;
+            
+            let displayTitle = "Data " + menu;
+            if (menu === "Ringkasan") displayTitle = "Dashboard Analitik";
+            if (menu === "Stok_Bahan") displayTitle = "Inventory Gudang";
+            if (menu === "Log_Beli_Bahan") displayTitle = "Riwayat Pembelian Bahan";
+            if (menu === "Pengambilan_Bahan") displayTitle = "Riwayat Pengambilan Bahan";
+            
+            document.getElementById("top-title").innerText = displayTitle;
             document.getElementById("searchInput").value = "";
 
             if (window.innerWidth <= 768) document.getElementById("sidebar").classList.remove("show");
@@ -906,7 +826,8 @@
             document.getElementById("area-pengaturan").style.display = (menu === "Pengaturan") ? "block" : "none";
             document.getElementById("area-gajian").style.display = (menu === "Gajian") ? "flex" : "none";
 
-            const isTableMenu = ["Karyawan", "Absensi", "Produksi", "Kasbon", "Gajian"].includes(menu);
+            // Tambahkan tabel inventory ke list
+            const isTableMenu = ["Karyawan", "Absensi", "Produksi", "Kasbon", "Gajian", "Stok_Bahan", "Log_Beli_Bahan", "Pengambilan_Bahan"].includes(menu);
             document.getElementById("table-card").style.display = isTableMenu ? "block" : "none";
 
             if (menu === "Ringkasan") updateDashboardAnalytics();
@@ -920,7 +841,6 @@
             if (isTableMenu) renderTabel();
         }
 
-        // 🔍 FILTER & 📑 EXPORT CSV
         function cariDataTabel() {
             let input = document.getElementById("searchInput").value.toLowerCase();
             let trs = document.getElementById("t-body").getElementsByTagName("tr");
@@ -946,7 +866,6 @@
             toast("Export Excel (CSV) Berhasil!");
         }
 
-        // 💾 BACKUP & 📂 RESTORE (JSON)
         function backupDataJSON() {
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(allData));
             const link = document.createElement('a');
@@ -975,7 +894,7 @@
                 } catch (err) { toast("File Backup tidak valid!", true); }
             };
             reader.readAsText(file);
-            event.target.value = ''; // reset input
+            event.target.value = ''; 
         }
 
         function renderTabel() {
@@ -993,8 +912,14 @@
                     if (typeof cell === "string" && cell.includes("T") && cell.includes("Z")) {
                         let d = new Date(cell); val = !isNaN(d.getTime()) ? d.toLocaleDateString('id-ID') : cell;
                     }
-                    if (hl.includes("jumlah") || hl.includes("upah") || hl.includes("hasil") || hl.includes("bersih") || hl.includes("potong")) val = formatRp(val);
+                    if (hl.includes("jumlah") || hl.includes("upah") || hl.includes("hasil") || hl.includes("bersih") || hl.includes("potong")) {
+                        // Jangan di-format RP kalau ini adalah stok barang, biarkan angka murni
+                        if (currentMenu !== "Stok_Bahan" && currentMenu !== "Log_Beli_Bahan" && currentMenu !== "Pengambilan_Bahan") {
+                            val = formatRp(val);
+                        }
+                    }
 
+                    // Logika pewarnaan status Kasbon & Produksi
                     if (currentMenu === "Kasbon" && hl.includes("status")) {
                         if (val.includes("Disetujui") || val.includes("Lunas")) val = `<span class="badge bg-green">${val}</span>`;
                         else if (val.includes("Melebihi") || val.includes("Ditolak")) val = `<span class="badge bg-red">${val}</span>`;
@@ -1003,6 +928,14 @@
                     if (currentMenu === "Produksi" && hl.includes("status")) {
                         val = val === "Lunas" ? `<span class="badge bg-green">Lunas</span>` : `<span class="badge bg-red">Belum Lunas</span>`;
                     }
+
+                    // Logika pewarnaan Stok Menipis
+                    if (currentMenu === "Stok_Bahan" && hl.includes("stok")) {
+                        let num = parseFloat(val);
+                        if (num <= 5) val = `<span style="color:var(--danger); font-weight:bold;">${val} (Menipis)</span>`;
+                        else val = `<span style="color:var(--success); font-weight:bold;">${val}</span>`;
+                    }
+
                     bTr += `<td>${val}</td>`;
                 });
 
@@ -1033,6 +966,7 @@
                     inp = `<input type="date" id="inp-${i}" value="${v}">`;
                 }
                 else if (hl === "id") { v = action === 'WEB_INSERT' ? "KB-" + Date.now() : v; inp = `<input type="text" id="inp-${i}" value="${v}" readonly>`; }
+                else if (hl === "id bahan") { v = action === 'WEB_INSERT' ? "BHN-" + Date.now() : v; inp = `<input type="text" id="inp-${i}" value="${v}" readonly>`; }
                 else if (hl === "nama" && currentMenu !== "Karyawan") {
                     let opt = `<option value="">-- Pilih --</option>`;
                     for (let nm in dbKar) opt += `<option value="${nm}" ${v === nm ? 'selected' : ''}>${nm}</option>`;
@@ -1046,6 +980,9 @@
                 else if (hl.includes("total upah") && currentMenu === "Produksi") inp = `<input type="number" id="inp-totupah" value="${v}" readonly placeholder="Otomatis">`;
                 else if (hl.includes("status") && currentMenu === "Produksi") inp = `<input type="text" id="inp-${i}" value="Belum Lunas" readonly>`;
                 else if (hl === "tipe gaji") inp = `<select id="inp-${i}"><option value="Borongan">Borongan</option><option value="Bulanan">Bulanan</option></select>`;
+                // Tambahan Dropdown Satuan untuk Inventory
+                else if (hl === "satuan") inp = `<select id="inp-${i}"><option value="Pcs" ${v==='Pcs'?'selected':''}>Pcs</option><option value="Batang" ${v==='Batang'?'selected':''}>Batang</option><option value="Lembar" ${v==='Lembar'?'selected':''}>Lembar</option><option value="Meter" ${v==='Meter'?'selected':''}>Meter</option><option value="Kg" ${v==='Kg'?'selected':''}>Kg</option><option value="Kotak" ${v==='Kotak'?'selected':''}>Kotak</option><option value="Set" ${v==='Set'?'selected':''}>Set</option></select>`;
+                else if (hl.includes("stok") || hl.includes("jumlah")) inp = `<input type="number" id="inp-${i}" value="${v}" placeholder="Masukkan angka">`;
                 else inp = `<input type="text" id="inp-${i}" value="${v}">`;
 
                 html += `<div class="form-group"><label>${h}</label>${inp}</div>`;
@@ -1058,6 +995,15 @@
             const data = dbKar[nama]; if (!data) return;
             if (document.getElementById("inp-wa")) document.getElementById("inp-wa").value = data.wa;
             if (document.getElementById("inp-barang") && currentMenu === "Produksi") document.getElementById("inp-barang").value = data.bag;
+            
+            // Auto isi bagian jika di sheet Pengambilan Bahan
+            let inputs = document.getElementById("form-inputs").getElementsByTagName("label");
+            for (let i = 0; i < inputs.length; i++) {
+                if(inputs[i].innerText.toLowerCase() === "bagian") {
+                    let inp = inputs[i].nextElementSibling;
+                    if(inp) inp.value = data.bag;
+                }
+            }
             hitungProduksi();
         }
 
@@ -1069,7 +1015,6 @@
             if (document.getElementById("inp-totupah")) document.getElementById("inp-totupah").value = parseInt(qty || 0) * upahPcs;
         }
 
-        // 🚀 SUPER REFRESH OTOMATIS 0 DETIK (OPTIMISTIC UPDATE)
         async function saveData() {
             if (isOfflineMode) return toast("Matikan Mode Offline untuk menyimpan data ke Server!", true);
 
@@ -1084,18 +1029,16 @@
                 rowData.push(val);
             });
 
-            // 1. UPDATE LOKAL INSTAN 0 DETIK!
             if (actionForm === 'WEB_INSERT') allData[currentMenu].push(rowData);
             else if (actionForm === 'WEB_UPDATE') allData[currentMenu][editIndex] = rowData;
 
             renderTabel();
             localStorage.setItem("erp_db_cache", JSON.stringify(allData));
-            processDataToUI(); // Re-index & Update Dashboard
+            processDataToUI(); 
 
             document.getElementById("modal-form").style.display = "none";
             toast("Berhasil disimpan! Sinkronisasi ke server...");
 
-            // 2. BACKGROUND SINKRONISASI KE GOOGLE SHEETS
             fetchGAS({ action: actionForm, sheetName: currentMenu, rowData: rowData, rowIndex: editIndex + 1 });
         }
 
@@ -1125,7 +1068,6 @@
             fetchGAS({ action: "WEB_UPDATE", sheetName: "Kasbon", rowData: allData["Kasbon"][idx], rowIndex: idx + 1 });
         }
 
-        // 🧮 PANEL STRUK GAJI DETAIL & RINCIAN 
         function kalkulasiOtomatis() {
             let nama = document.getElementById("sel-gaji-nama").value;
             if (!nama) { document.getElementById("struk-gaji").style.display = "none"; return; }
@@ -1181,8 +1123,6 @@
             document.getElementById("gaji-kotor").value = tUpah;
             document.getElementById("gaji-hutang").value = tKasbon;
 
-            // LOGIKA BARU: Jika hutang lebih besar dari upah, potong maksimal sebesar upah kotor saja (Gaji Bersih = Rp 0).
-            // Sisa hutangnya nanti akan otomatis dibuatkan catatan kasbon baru oleh sistem untuk periode berikutnya.
             let maksimalPotongan = (tKasbon > tUpah) ? tUpah : tKasbon;
             document.getElementById("gaji-potong").value = maksimalPotongan;
 
@@ -1198,7 +1138,6 @@
             let kotor = parseFloat(document.getElementById("gaji-kotor").value) || 0;
             let potong = parseFloat(document.getElementById("gaji-potong").value) || 0;
 
-            // LOGIKA BARU: Cegah Admin mengetik angka potongan melebihi gaji kotor (mencegah minus)
             if (potong > kotor) {
                 alert("Peringatan: Potongan tidak boleh lebih besar dari Total Upah!");
                 potong = kotor;
@@ -1211,24 +1150,21 @@
 
             document.getElementById("gaji-bersih").value = formatRp(bersih);
             
-            // Update UI Struk Bawahnya
             document.getElementById("s-tgl").innerText = new Date().toLocaleDateString('id-ID');
             document.getElementById("s-nama").innerText = document.getElementById("sel-gaji-nama").value;
             document.getElementById("s-kotor-rp").innerText = formatRp(kotor);
             document.getElementById("s-potong-rp").innerText = formatRp(potong);
             document.getElementById("s-bersih-rp").innerText = formatRp(bersih);
 
-            // LOGIKA MUNCULKAN SISA HUTANG JIKA MASIH ADA
             let elSisaRow = document.getElementById("s-row-sisa-hutang");
             if (sisaHutang > 0) {
                 elSisaRow.style.display = "flex";
                 document.getElementById("s-sisa-hutang-rp").innerText = formatRp(sisaHutang);
             } else {
-                elSisaRow.style.display = "none"; // Sembunyikan jika hutang lunas
+                elSisaRow.style.display = "none";
             }
         }
 
-        // 🖨️ FUNGSI PRINT & PELUNASAN (0 DETIK!)
         async function simpanDanPrint() {
             if (isOfflineMode) return toast("Matikan mode Offline untuk melakukan pelunasan!", true);
 
@@ -1258,18 +1194,13 @@
             document.getElementById("struk-gaji").style.display = "none";
             document.getElementById("sel-gaji-nama").value = "";
             localStorage.setItem("erp_db_cache", JSON.stringify(allData));
-            processDataToUI(); // Update Dashboard Analitik
+            processDataToUI(); 
             toast("Print sukses! Pelunasan disimpan secara latar belakang...");
 
             let payload = { action: "PROSES_GAJI", no_wa: dbKar[nama].wa, nama: nama, hasil: kotor, potong: potong, bersih: bersih, sisa_hutang: sisaHutang };
             fetchGAS(payload);
         }
 
-        // ==========================================
-        // 🚀 SCRIPT PWA & INSTALL KE ANDROID
-        // ==========================================
-        
-        // 1. Daftarkan Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('sw.js')
@@ -1278,37 +1209,28 @@
             });
         }
 
-        // 2. Tangkap event Install dari Chrome
         let deferredPrompt;
         const btnInstallApp = document.getElementById('btn-install-app');
 
         window.addEventListener('beforeinstallprompt', (e) => {
-            // Mencegah Chrome memunculkan prompt bawaan secara otomatis jika ingin custom
             e.preventDefault();
-            // Simpan event untuk dipanggil nanti
             deferredPrompt = e;
-            // Tampilkan tombol install di sidebar
             btnInstallApp.style.display = 'flex';
         });
 
-        // 3. Eksekusi Install saat tombol ditekan
         btnInstallApp.addEventListener('click', async () => {
             if (deferredPrompt !== null) {
-                // Munculkan dialog install bawaan Android/Chrome
                 deferredPrompt.prompt();
-                // Tunggu respon user
                 const { outcome } = await deferredPrompt.userChoice;
                 if (outcome === 'accepted') {
                     console.log('User menginstal aplikasi');
                     btnInstallApp.style.display = 'none';
                 }
-                // Hapus prompt
                 deferredPrompt = null;
             }
         });
 
         window.addEventListener('appinstalled', () => {
-            // Sembunyikan tombol jika sudah di-install
             btnInstallApp.style.display = 'none';
             toast("Aplikasi berhasil di-install!");
         });
